@@ -4,7 +4,7 @@
 
 ### Category Name 1 
 
-[ColourCurve](/sample_page)
+[ColourCurve](/colourcurve)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
