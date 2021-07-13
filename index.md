@@ -12,7 +12,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 3 Title](http://example.com/)
+[Enclosed Curve Shortening Flow](/_posts/enclosed-curve-shortening.html)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
