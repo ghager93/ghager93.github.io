@@ -2,6 +2,8 @@
 
 ## Motivation
 
+Testing latex $\sqrt 2$
+
 I love beautiful data.  Clean, succinct and informative data.  Goldilocks data: Not too much, not too little.  The kind of data that deserves to be hung in a gallery.  Specifically, I am talking about data visualisation.
 
 This project was first inspired by this picture on Reddit;
