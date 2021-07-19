@@ -30,7 +30,7 @@ $$
 <!-- <img src="images/dummy_thumbnail.jpg?raw=true"/> -->
 
 ---
-[Enclosed Curve Shortening Flow](/enclosed-curve-shortening)
+[Enclosed Curve Shortening Flow](/enclosed-curve-shortening-flow)
 <!-- <img src="images/dummy_thumbnail.jpg?raw=true"/> -->
 
 ---
