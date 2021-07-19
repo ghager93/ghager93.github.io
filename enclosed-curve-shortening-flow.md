@@ -34,7 +34,7 @@ There are several rules that I would like this algorithm to follow:
 
 Curve shortening flow moves the points of a smooth curve perpendicular to the curve at a speed proportional to the curvature.  It is also known as Euclidean shortening flow, geometric heat flow, or arc length evolution.
 
-<img src="images/Convex_curve_shortening.png" style="zoom:67%;" />
+<img src="images/convex_curve_shortening.png" style="zoom:67%;" />
 
 
 
@@ -108,7 +108,7 @@ Finite difference methods involve using discrete samples of a function to approx
 
 There are three basic types of finite difference: *forward*, *backward* and *central*.
 
-<img src="images/Finite_difference_method.svg" />
+<img src="images/finite_difference_method.svg" />
 
 ###### Forward Difference
 
