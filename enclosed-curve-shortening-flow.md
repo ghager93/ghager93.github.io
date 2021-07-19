@@ -14,11 +14,9 @@ This project was first inspired by this picture on Reddit;
 
 <img src="images/curve_shortening.jpg" style="zoom: 33%;" />
 
-<img src="images/enclosed_curve_shortening_flow_images/curve_shortening.jpg?raw=true"/>
-
 It shows a crude outline of Ireland (the island).  I can't remember what it was representing, I just remember thinking it didn't look very good.  However, it could be an interesting way to visualise data relating to proportions of a country.  For instance, if you wanted to display the demographic breakdown of a country, you could use cumulative polygonal areas as a kind of stack chart.  The following diagram gives a rough example of this; 
 
-<img src="C:\Users\ghage\Pictures\typora\brazil-silhouette_percent.bmp" style="zoom:15%;" />
+<img src="images/brazil-silhouette_percent.bmp" style="zoom:15%;" />
 
 This is a silhouette of Brazil, the different colours represent cumulative proportions of the silhouette.  Importantly, the different shapes maintain some resemblance to the original shape, i.e. rather than just becoming circles.  This topological relation gives a much nicer appearance.
 
@@ -52,7 +50,7 @@ As the curve evolves it remains simple and smooth.  It loses area at a constant 
 
 Let $C(s) = (x(s), y(s))$ be a **smooth curve**, where $s$ is a parameter describing the length along the curve, and $(x(s), y(s))$ is the Cartesian point of the curve at arc length $s$;
 
-<img src="C:\Users\ghage\Pictures\typora\parametric curve.png" style="zoom:50%;" />
+<img src="images/parametric curve.png" style="zoom:50%;" />
 
 The **unit tangential vector** $\vec t$ for each point is given by
 
@@ -84,7 +82,7 @@ $$
 \frac {d \bf x} {dt} = -k(\bf x)\vec n(\bf x) = -\vec t(\bf x)
 $$
 
-<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\csf_vectors-1622729749489.png" style="zoom:60%;" />
+<img src="images/csf_vectors-1622729749489.png" style="zoom:60%;" />
 
 
 
@@ -110,7 +108,7 @@ Finite difference methods involve using discrete samples of a function to approx
 
 There are three basic types of finite difference: *forward*, *backward* and *central*.
 
-![](C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\Finite_difference_method.svg)
+<img src="images/Finite_difference_method.svg" />
 
 ###### Forward Difference
 
