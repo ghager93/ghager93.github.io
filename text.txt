@@ -14,7 +14,7 @@ I love beautiful data.  Clean, succinct and informative data.  Goldilocks data: 
 
 This project was first inspired by this picture on Reddit;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\curve_shortening.jpg" style="zoom: 33%;" />
+<img src="C:\Users\ghage\Pictures\typora\curve_shortening.jpg" style="zoom: 33%;" />
 
 It shows a crude outline of Ireland (the island).  I can't remember what it was representing, I just remember thinking it didn't look very good.  However, it could be an interesting way to visualise data relating to proportions of a country.  For instance, if you wanted to display the demographic breakdown of a country, you could use cumulative polygonal areas as a kind of stack chart.  The following diagram gives a rough example of this; 
 
@@ -36,7 +36,7 @@ There are several rules that I would like this algorithm to follow:
 
 Curve shortening flow moves the points of a smooth curve perpendicular to the curve at a speed proportional to the curvature.  It is also known as Euclidean shortening flow, geometric heat flow, or arc length evolution.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\Convex_curve_shortening.png" style="zoom:67%;" />
+<img src="C:\Users\ghage\Pictures\typora\Convex_curve_shortening.png" style="zoom:67%;" />
 
 
 
@@ -66,7 +66,7 @@ $$
 \vec {n(s)} = \frac {\vec {t'(s)}} {\lvert \vec {t'(s)} \rvert}
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\tangent_normal.png" style="zoom:50%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\tangent_normal.png" style="zoom:50%;" />
 
 The **curvature** $k(s)$ is a scalar that describes how much curve is occurring at the point $\left<x(s), y(s)\right>$;
 
@@ -76,7 +76,7 @@ $$
 
  It is related to the radius of the osculating circle at $\left<x(s), y(s)\right>$.  The osculating circle is the circle mapped out by extending the curvature at the point:
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\osculating_circle.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\osculating_circle.png" style="zoom:60%;" />
 
 The **curve shortening flow** is defined such that each point $\bf x = \left<x(s), y(s)\right>$ on the curve moves according to the following differential equation:
 
@@ -100,7 +100,7 @@ where $\alpha$ is the interior angle at $\bf v$.
 
 The normal vector $\vec {n(\bf v)}$ points in the direction of the angle bisector at $\bf v$;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\discrete_csf.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\discrete_csf.png" style="zoom:60%;" />
 
 
 
@@ -176,7 +176,7 @@ where $h_i = x_{i+1} - x_i$
 
 This is the case when using arc length as the interval for a curve defined on a pixelated grid, as shown below.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\pixel_distant.jpg" style="zoom:67%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\pixel_distant.jpg" style="zoom:67%;" />
 
 The orange squares represent pixels in a curve, with the blue line connecting their centres.  For any horizontally or vertical adjacent pixels, the change in arc length will be a  unit. For a diagonal movement, however, the change is equal to $\sqrt 2$.
 
@@ -289,19 +289,19 @@ n =    [[ 0.383, -0.924],
         [ 0.   ,  0.   ]]
 ```
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\tangents_normals.png" style="zoom:67%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\tangents_normals.png" style="zoom:67%;" />
 
 ##### Problems with Discretisation
 
 Calculating derivatives on a discrete grid will lead to inaccurate vector measurements, as shown below;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\discretisation.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\discretisation.png" style="zoom:60%;" />
 
 Since the only movements possible on the curve are horizontal, vertical and diagonal, the tangent and normal vector cannot accurately describe the overall curvature.
 
 The effect can be mitigated by using a low-pass filter on both the tangent and normal arrays;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\filtered_heart.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\filtered_heart.png" style="zoom:60%;" />
 
 In the left image the tangent vector has been filtered with a square kernel 10 samples long. The normal vector has been filtered with a square kernel 20 samples long;
 
@@ -351,7 +351,7 @@ $$
 
 where  $\beta$ is some step size constant.  However, this process can be (and often is) problematic, as shown below;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\mov_avg_and_gauss_iterations.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\mov_avg_and_gauss_iterations.png" style="zoom:60%;" />
 
 The picture shows ten iterations of additive updates to curve, both with moving average and Gaussian filters.  Even with a small step ($\beta = 0.001$) the curve quickly becomes unstable.
 
@@ -361,15 +361,15 @@ The picture shows ten iterations of additive updates to curve, both with moving 
 
 One reason for this is the sharp curves at the top and bottom.  Being the most extreme points of curvature, these points should have the largest movements and thus round-off quickly.  Instead, they are hidden by the filtering and propagate through iterations.  As the difference in curvature between these points and their neighbours increases, instability is formed and cascades around the curve.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\gauss_it_zoom.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\gauss_it_zoom.png" style="zoom:60%;" />
 
 These edges can be removed by applying a binary opening and closing to the image before calculating its edge;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\open_and_close.png" style="zoom:50%;" /><img src=\"\images\enclosed_curve_shortening_flow_images\open_and_close_vectors.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\open_and_close.png" style="zoom:50%;" /><img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\open_and_close_vectors.png" style="zoom:60%;" />
 
 This stops the sharp edge propagating through the iterations, but does not fix the instability;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\op_cl_iter.png" style="zoom:50%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\op_cl_iter.png" style="zoom:50%;" />
 
 
 
@@ -445,11 +445,11 @@ $$
     \bf t(s)
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\inward_vector.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\inward_vector.png" style="zoom:60%;" />
 
 However, since the movements are not weighted by the amount of curvature, the curve will overlap at its sharpest points, as shown below;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\inward_vector_development.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\inward_vector_development.png" style="zoom:60%;" />
 
 
 
@@ -469,7 +469,7 @@ $$
 	\bf t(s)
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\weighted_inward_vector.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\weighted_inward_vector.png" style="zoom:60%;" />
 
 The problem with this is now the outward curves have outward facing vectors.  As such, the weighting function needs to be altered such that it remains non-negative.  Furthermore, the magnitude of the weighting function at points where the curvature is negative should be scaled down, so that parts of the edge that curve outwards (i.e. have negative curvature) move inwards much less (or not at all) compared to points with inward curve.
 
@@ -531,7 +531,7 @@ $$
 
 Since the sigmoid function limits the positive curvature to one, it produces the most stable results.  Below is a comparison of the scaling functions for the curvature along the arc;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\scaled_curvature.png" style="zoom:60%;" /> 
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\scaled_curvature.png" style="zoom:60%;" /> 
 
 
 
@@ -567,7 +567,7 @@ Shown below are the first 400 iterations of the algorithm with the different sca
 
 This is implied by the graphic below, which shows the mean distance between neighbouring vertices in the curve at each iteration.  For each scaling method, the curvature instability occurs when the mean edge length goes a small amount below one.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\mean_edge_length.png" style="zoom:100%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\mean_edge_length.png" style="zoom:100%;" />
 
 
 
@@ -575,7 +575,7 @@ This is implied by the graphic below, which shows the mean distance between neig
 
 The above instability is due to the vertices of the curve bunching together.  The image below shows the vectors of individual vertices at different iterations of the algorithm.  Initially the vertices are uniformly spaced.   In later iterations, however, they are more clustered at points of high curvature.  Eventually the vertices become so close their vectors cross, leading to an overlap in the curve and instability that grows out of control, shown on the right.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\vertex_step_vectors.png" style="zoom:60%;" /> 
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\vertex_step_vectors.png" style="zoom:60%;" /> 
 
 
 
@@ -658,7 +658,7 @@ $$
 \mathcal N(x; \sigma) = \bar R_X^{(0)} \exp(-\frac {x^2} {2\sigma^2}), \quad \sigma = \frac \pi {20}
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\convex_approx.png" style="zoom:60%;" />
+<img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\convex_approx.png" style="zoom:60%;" />
 
 Thus, the inverse of the scaled normal distribution can be used to find values of the Gaussian standard deviation that give linear iteration curves between the original convex curve and the  singularity;
 
