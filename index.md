@@ -8,7 +8,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 2 Title](./_posts/enclosed-curve-shortening.html)
+[Project 2 Title](./_posts/enclosed-curve-shortening.md)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
