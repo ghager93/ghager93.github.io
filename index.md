@@ -14,15 +14,15 @@ $\epsilon^{i\pi} = -1$
 ### Category Name 1 
 
 [ColourCurve](https://github.com/ghager93/ghager93.github.io/blob/28a5a6a38e13db05049a07b0f004fd091bdcf7eb/_posts/enclosed-curve-shortening.html)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<!-- <img src="images/dummy_thumbnail.jpg?raw=true"/> -->
 
 ---
 [Project 2 Title](./_posts/enclosed-curve-shortening.md)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<!-- <img src="images/dummy_thumbnail.jpg?raw=true"/> -->
 
 ---
 [Enclosed Curve Shortening Flow](/_posts/enclosed-curve-shortening.html)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<!-- <img src="images/dummy_thumbnail.jpg?raw=true"/> -->
 
 ---
 
