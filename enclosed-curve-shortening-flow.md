@@ -81,7 +81,7 @@ $$
 The **curve shortening flow** is defined such that each point $\bold x = \left<x(s), y(s)\right>$ on the curve moves according to the following differential equation:
 
 $$
-\frac {d \bold x} {dt} = -k(\bold x)\vec n(\bold x) = -\vec t(\bold x)
+\frac {d \bold x} {dt} = -k(\bold x)\vec n(\bf x) = -\vec t(\boldsymbol x)
 $$
 
 <img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\csf_vectors-1622729749489.png" style="zoom:60%;" />
