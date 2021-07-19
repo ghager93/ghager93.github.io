@@ -2,6 +2,10 @@
 
 ### Introduction
 
+Maths test: $\sigma_1 = x$
+
+\( \text{block maths} \\ \epsilon^{i\pi} = -1 \)
+
 Use this template if you need a quick developer / data science portfolio! Based on a Minimal Jekyll theme for GitHub Pages.
 
 <img src="images/demo.gif?raw=true"/>
