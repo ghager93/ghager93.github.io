@@ -8,13 +8,13 @@ mathjax: True
 
 ## Motivation
 
-Testing latex $\sqrt 2$
-
 I love beautiful data.  Clean, succinct and informative data.  Goldilocks data: Not too much, not too little.  The kind of data that deserves to be hung in a gallery.  Specifically, I am talking about data visualisation.
 
 This project was first inspired by this picture on Reddit;
 
 <img src="images/curve_shortening.jpg" style="zoom: 33%;" />
+
+<img src="images/enclosed_curve_shortening_flow_images/curve_shortening.jpg?raw=true"/>
 
 It shows a crude outline of Ireland (the island).  I can't remember what it was representing, I just remember thinking it didn't look very good.  However, it could be an interesting way to visualise data relating to proportions of a country.  For instance, if you wanted to display the demographic breakdown of a country, you could use cumulative polygonal areas as a kind of stack chart.  The following diagram gives a rough example of this; 
 
