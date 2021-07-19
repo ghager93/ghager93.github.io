@@ -24,7 +24,7 @@ if (isAwesome){
 
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
-<img src="images/enclosed_curve_shortening_flow_images/convex_approx.png" style="zoom:60%;"/>
+<img src="images/enclosed_curve_shortening_flow_images/convex_approx.png" style="zoom:10%;"/>
 
 ### 4. Provide a basis for further data collection through surveys or experiments
 
