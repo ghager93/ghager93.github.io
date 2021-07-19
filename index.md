@@ -9,7 +9,7 @@ Maths test:
 
 $\epsilon^{i\pi} = -1$
 
-\\( \sigma \\ xy \\)
+\\( \sigma \\\\ xy \\)
 
 ### Category Name 1 
 
