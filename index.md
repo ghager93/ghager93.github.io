@@ -1,6 +1,11 @@
 ## Portfolio
 
 ---
+Maths test:
+
+$\epsilon^{i\pi} = -1$
+
+\( \sigma \\ xy \)
 
 ### Category Name 1 
 
