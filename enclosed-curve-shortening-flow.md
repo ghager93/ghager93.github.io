@@ -671,8 +671,8 @@ where $\left\lvert \bar R_X^{(0)} \right\rvert$ is the average radius of the ori
 # Bibliography
 
 - <a href="https://en.wikipedia.org/wiki/Curve-shortening_flow"> https://en.wikipedia.org/wiki/Curve-shortening_flow </a>
-- https://math.mit.edu/research/highschool/primes/materials/2017/conf/7-1-Cohen-Singh.pdf
-- https://en.wikipedia.org/wiki/Finite_difference
-- https://paperswithcode.com/method/softplus
-- https://en.wikipedia.org/wiki/Rectifier_(neural_networks)
+- <a href="https://math.mit.edu/research/highschool/primes/materials/2017/conf/7-1-Cohen-Singh.pdf"> https://math.mit.edu/research/highschool/primes/materials/2017/conf/7-1-Cohen-Singh.pdf </a>
+- <a href="https://en.wikipedia.org/wiki/Finite_difference"> https://en.wikipedia.org/wiki/Finite_difference </a>
+- <a href="https://paperswithcode.com/method/softplus"> https://paperswithcode.com/method/softplus </a>
+- <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)"> https://en.wikipedia.org/wiki/Rectifier_(neural_networks) </a>
 - Mokhtarian, Farzin & Mackworth, Alan. (1992). A Theory of Multiscale, Curvature-Based Shape Representation for Planar Curves. Pattern Analysis and Machine Intelligence, IEEE Transactions on. 14. 789-805. 10.1109/34.149591. 
