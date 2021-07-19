@@ -33,7 +33,7 @@ $$
 [Enclosed Curve Shortening Flow](/enclosed-curve-shortening-flow)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
-<img src="images/dummy_thumbnail.jpg" style="zoom:33%;"/>
+<img src="images/enclosed_curve_shortening_flow_images/curve_shortening.jpg" style="zoom: 33%;" />
 
 ---
 
