@@ -1,3 +1,9 @@
+---
+title: "Enclosed Curve Shortening Flow"
+permalink: /enclosed-curve-shortening-flow/
+mathjax: True
+---
+
 # Enclosed Curve Shortening Flow
 
 ## Motivation
