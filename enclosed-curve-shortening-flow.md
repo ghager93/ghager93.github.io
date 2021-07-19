@@ -14,7 +14,7 @@ I love beautiful data.  Clean, succinct and informative data.  Goldilocks data: 
 
 This project was first inspired by this picture on Reddit;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\curve_shortening.jpg" style="zoom: 33%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\curve_shortening.jpg" style="zoom: 33%;" />
 
 It shows a crude outline of Ireland (the island).  I can't remember what it was representing, I just remember thinking it didn't look very good.  However, it could be an interesting way to visualise data relating to proportions of a country.  For instance, if you wanted to display the demographic breakdown of a country, you could use cumulative polygonal areas as a kind of stack chart.  The following diagram gives a rough example of this; 
 
@@ -36,7 +36,7 @@ There are several rules that I would like this algorithm to follow:
 
 Curve shortening flow moves the points of a smooth curve perpendicular to the curve at a speed proportional to the curvature.  It is also known as Euclidean shortening flow, geometric heat flow, or arc length evolution.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\Convex_curve_shortening.png" style="zoom:67%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\Convex_curve_shortening.png" style="zoom:67%;" />
 
 
 
@@ -66,7 +66,7 @@ $$
 \vec {n(s)} = \frac {\vec {t'(s)}} {\lvert \vec {t'(s)} \rvert}
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\tangent_normal.png" style="zoom:50%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\tangent_normal.png" style="zoom:50%;" />
 
 The **curvature** $k(s)$ is a scalar that describes how much curve is occurring at the point $\left<x(s), y(s)\right>$;
 
@@ -76,12 +76,12 @@ $$
 
  It is related to the radius of the osculating circle at $\left<x(s), y(s)\right>$.  The osculating circle is the circle mapped out by extending the curvature at the point:
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\osculating_circle.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\osculating_circle.png" style="zoom:60%;" />
 
-The **curve shortening flow** is defined such that each point $\boldsymbol x = \left<x(s), y(s)\right>$ on the curve moves according to the following differential equation:
+The **curve shortening flow** is defined such that each point $\bf x = \left<x(s), y(s)\right>$ on the curve moves according to the following differential equation:
 
 $$
-\frac {d \boldsymbol x} {dt} = -k(\boldsymbol x)\vec n(\boldsymbol x) = -\vec t(\boldsymbol x)
+\frac {d \bf x} {dt} = -k(\bf x)\vec n(\bf x) = -\vec t(\bf x)
 $$
 
 <img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\csf_vectors-1622729749489.png" style="zoom:60%;" />
@@ -90,17 +90,17 @@ $$
 
 ##### Discrete Curve Shortening Flow
 
-For a polygon made up of discrete vertices, the curvature $k(\boldsymbol v)$ at vertex $\boldsymbol v$ is 
+For a polygon made up of discrete vertices, the curvature $k(\bf v)$ at vertex $\bf v$ is 
 
 $$
-k(\boldsymbol v) = \pi - \alpha
+k(\bf v) = \pi - \alpha
 $$
 
-where $\alpha$ is the interior angle at $\boldsymbol v$.
+where $\alpha$ is the interior angle at $\bf v$.
 
-The normal vector $\vec {n(\boldsymbol v)}$ points in the direction of the angle bisector at $\boldsymbol v$;
+The normal vector $\vec {n(\bf v)}$ points in the direction of the angle bisector at $\bf v$;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\discrete_csf.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\discrete_csf.png" style="zoom:60%;" />
 
 
 
@@ -176,7 +176,7 @@ where $h_i = x_{i+1} - x_i$
 
 This is the case when using arc length as the interval for a curve defined on a pixelated grid, as shown below.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\pixel_distant.jpg" style="zoom:67%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\pixel_distant.jpg" style="zoom:67%;" />
 
 The orange squares represent pixels in a curve, with the blue line connecting their centres.  For any horizontally or vertical adjacent pixels, the change in arc length will be a  unit. For a diagonal movement, however, the change is equal to $\sqrt 2$.
 
@@ -190,7 +190,7 @@ Let `points` be a list of the locations of pixels representing the curve;
 points = [[0, 0], [1, 1], [2, 1], [2, 2], [2, 3], [1, 4], [2, 5], [3, 5], [4, 5]]
 ```
 
-The arc length $\boldsymbol s$ is calculated as the cumulative Euclidean distance between the points;
+The arc length $\bf s$ is calculated as the cumulative Euclidean distance between the points;
 
 ```python
 def arc_length(points):
@@ -199,7 +199,7 @@ def arc_length(points):
 s = [0.   , 1.414, 2.414, 3.414, 4.414, 5.828, 7.243, 8.243, 9.243]
 ```
 
- $\boldsymbol s$ can be normalised to lie in the region $\boldsymbol s_n \in [0, 1]$.
+ $\bf s$ can be normalised to lie in the region $\bf s_n \in [0, 1]$.
 
 ```python
 sn = [0.   , 0.153, 0.261, 0.369, 0.478, 0.631, 0.784, 0.892, 1.   ]
@@ -208,7 +208,7 @@ sn = [0.   , 0.153, 0.261, 0.369, 0.478, 0.631, 0.784, 0.892, 1.   ]
 The backward finite difference is used to find the first-order differential of the curve, 
 
 $$
-\boldsymbol x'(s_n) = \left< x'(s_n), y'(s_n) \right>
+\bf x'(s_n) = \left< x'(s_n), y'(s_n) \right>
 $$
 
 ```python
@@ -230,7 +230,7 @@ dpoints =  [[ 6.536,  6.536],
 The unit tangent vectors of the curve are found by normalising each point of the derivative,
 
 $$
-\boldsymbol t = \frac 1 {\sqrt{x'^2(s) + y'^2(s)}}\boldsymbol x'(s_n)
+\bf t = \frac 1 {\sqrt{x'^2(s) + y'^2(s)}}\bf x'(s_n)
 $$
 
 
@@ -249,7 +249,7 @@ t =    [[ 0.707,  0.707],
 The second derivative is found using the central finite difference,
 
 $$
-\boldsymbol x''(s_n) = \left< x''(s_n), y''(s_n) \right>
+\bf x''(s_n) = \left< x''(s_n), y''(s_n) \right>
 $$
 
 ```python
@@ -274,7 +274,7 @@ ddpoints = [[ 10.364, -25.021],
 The unit normal vectors of the curve are the normalised vectors of the second derivative;
 
 $$
-\boldsymbol n = \frac {\boldsymbol t'} {\left| \boldsymbol t' \right|}
+\bf n = \frac {\bf t'} {\left| \bf t' \right|}
 $$
 
 ```python
@@ -289,19 +289,19 @@ n =    [[ 0.383, -0.924],
         [ 0.   ,  0.   ]]
 ```
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\tangents_normals.png" style="zoom:67%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\tangents_normals.png" style="zoom:67%;" />
 
 ##### Problems with Discretisation
 
 Calculating derivatives on a discrete grid will lead to inaccurate vector measurements, as shown below;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\discretisation.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\discretisation.png" style="zoom:60%;" />
 
 Since the only movements possible on the curve are horizontal, vertical and diagonal, the tangent and normal vector cannot accurately describe the overall curvature.
 
 The effect can be mitigated by using a low-pass filter on both the tangent and normal arrays;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\filtered_heart.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\filtered_heart.png" style="zoom:60%;" />
 
 In the left image the tangent vector has been filtered with a square kernel 10 samples long. The normal vector has been filtered with a square kernel 20 samples long;
 
@@ -327,7 +327,7 @@ The curvature can be calculated as the cross-product of the normal and the tange
 
 $$
 \begin{align}
-	\kappa(s) &= \boldsymbol t(s) \times \boldsymbol n(s) \\
+	\kappa(s) &= \bf t(s) \times \bf n(s) \\
 	\\
 	&= x'(s)y''(s) - x''(s)y'(s)
 \end{align}
@@ -346,12 +346,12 @@ A positive (red) curvature indicates an inward curve, while negative (blue) indi
 By moving the each point of the curve in the direction of its normal, the curvature will move toward a constant.  That is, outward curves will move outward and inward curves inward, until the curvature at each point is equal.  At this point, the curve will be a circle, and subsequent moves along the normal will shrink the circle to a singularity.  This can be simulated via iterative update;
 
 $$
-\boldsymbol x^{(i+1)}(s) \leftarrow \boldsymbol x^{(i)}(s) + \beta\boldsymbol n^{(i)}(s)
+\bf x^{(i+1)}(s) \leftarrow \bf x^{(i)}(s) + \beta\bf n^{(i)}(s)
 $$
 
 where  $\beta$ is some step size constant.  However, this process can be (and often is) problematic, as shown below;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\mov_avg_and_gauss_iterations.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\mov_avg_and_gauss_iterations.png" style="zoom:60%;" />
 
 The picture shows ten iterations of additive updates to curve, both with moving average and Gaussian filters.  Even with a small step ($\beta = 0.001$) the curve quickly becomes unstable.
 
@@ -361,15 +361,15 @@ The picture shows ten iterations of additive updates to curve, both with moving 
 
 One reason for this is the sharp curves at the top and bottom.  Being the most extreme points of curvature, these points should have the largest movements and thus round-off quickly.  Instead, they are hidden by the filtering and propagate through iterations.  As the difference in curvature between these points and their neighbours increases, instability is formed and cascades around the curve.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\gauss_it_zoom.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\gauss_it_zoom.png" style="zoom:60%;" />
 
 These edges can be removed by applying a binary opening and closing to the image before calculating its edge;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\open_and_close.png" style="zoom:50%;" /><img src=\"\images\enclosed_curve_shortening_flow_images\open_and_close_vectors.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\open_and_close.png" style="zoom:50%;" /><img src=\"images\enclosed_curve_shortening_flow_images\open_and_close_vectors.png" style="zoom:60%;" />
 
 This stops the sharp edge propagating through the iterations, but does not fix the instability;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\op_cl_iter.png" style="zoom:50%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\op_cl_iter.png" style="zoom:50%;" />
 
 
 
@@ -435,21 +435,21 @@ According to the Gage-Hamilton-Grayson theorem, any shape that undergoes curve s
 Clearly, to satisfy this property, the curve should only move inward.  Assuming a clockwise arc, the inward vector can be found by rotating the tangent vector $90^\circ$ clockwise;
 
 $$
-\boldsymbol v_{inward}(s) = 
+\bf v_{inward}(s) = 
 	\left(
 		\begin{matrix}
 			0 & 1 \\
 			-1 & 0 \\
    		\end{matrix}
    	\right)
-    \boldsymbol t(s)
+    \bf t(s)
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\inward_vector.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\inward_vector.png" style="zoom:60%;" />
 
 However, since the movements are not weighted by the amount of curvature, the curve will overlap at its sharpest points, as shown below;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\inward_vector_development.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\inward_vector_development.png" style="zoom:60%;" />
 
 
 
@@ -458,7 +458,7 @@ However, since the movements are not weighted by the amount of curvature, the cu
 To prevent singular points emerging where curvature is sharpest, the update can be weighted by the curvature $\kappa$;
 
 $$
-\boldsymbol v_{step}(s) = 
+\bf v_{step}(s) = 
 	\kappa(s)
 	\left(
 		\begin{matrix}
@@ -466,10 +466,10 @@ $$
 			-1 & 0 \\
 		\end{matrix}	
 	\right)
-	\boldsymbol t(s)
+	\bf t(s)
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\weighted_inward_vector.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\weighted_inward_vector.png" style="zoom:60%;" />
 
 The problem with this is now the outward curves have outward facing vectors.  As such, the weighting function needs to be altered such that it remains non-negative.  Furthermore, the magnitude of the weighting function at points where the curvature is negative should be scaled down, so that parts of the edge that curve outwards (i.e. have negative curvature) move inwards much less (or not at all) compared to points with inward curve.
 
@@ -531,29 +531,29 @@ $$
 
 Since the sigmoid function limits the positive curvature to one, it produces the most stable results.  Below is a comparison of the scaling functions for the curvature along the arc;
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\scaled_curvature.png" style="zoom:60%;" /> 
+<img src=\"images\enclosed_curve_shortening_flow_images\scaled_curvature.png" style="zoom:60%;" /> 
 
 
 
 #### Iterations
 
-We turn now to implementation of ECSF.  The algorithm is an iterative update function.  For each step, the normalised curvature at each point, $\kappa_{norm}(s)$ is calculated.  This is then scaled by one of the scaling functions discussed above.  This scaling is used to weight the inward vector, $\boldsymbol v_{inward}(s)$.  The weighted vectors are passed through a Gaussian filter to smooth any discontinuities.  Finally the shape is shifted in the direction of the filtered vectors, with the magnitude determined by a step size coefficient.  This is summarised below;
+We turn now to implementation of ECSF.  The algorithm is an iterative update function.  For each step, the normalised curvature at each point, $\kappa_{norm}(s)$ is calculated.  This is then scaled by one of the scaling functions discussed above.  This scaling is used to weight the inward vector, $\bf v_{inward}(s)$.  The weighted vectors are passed through a Gaussian filter to smooth any discontinuities.  Finally the shape is shifted in the direction of the filtered vectors, with the magnitude determined by a step size coefficient.  This is summarised below;
 
 $$
 \begin{align}
 	\kappa_{norm} &= \frac {\kappa} {\max \left( \lvert \kappa \rvert \right)} \\ \\
 	\kappa_{scaled} &= f_{scaling}\left(\kappa_{norm}\right) \\ \\
-	\boldsymbol v_{inward} &= 
+	\bf v_{inward} &= 
 		\left(
 		\begin{matrix}
 			0 & 1 \\
 			-1 & 0 \\
 		\end{matrix}	
 		\right)
-		\boldsymbol t \\ \\
-	\boldsymbol x^{(i+1)} &= \boldsymbol x^{(i)} + 
-		\beta_{step} \left(\kappa_{scaled} \boldsymbol v_{inward} \circledast \boldsymbol 
-		g\left(\boldsymbol s , \sigma\right)\right)
+		\bf t \\ \\
+	\bf x^{(i+1)} &= \bf x^{(i)} + 
+		\beta_{step} \left(\kappa_{scaled} \bf v_{inward} \circledast \bf 
+		g\left(\bf s , \sigma\right)\right)
 		
 \end{align}
 $$
@@ -567,7 +567,7 @@ Shown below are the first 400 iterations of the algorithm with the different sca
 
 This is implied by the graphic below, which shows the mean distance between neighbouring vertices in the curve at each iteration.  For each scaling method, the curvature instability occurs when the mean edge length goes a small amount below one.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\mean_edge_length.png" style="zoom:100%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\mean_edge_length.png" style="zoom:100%;" />
 
 
 
@@ -575,7 +575,7 @@ This is implied by the graphic below, which shows the mean distance between neig
 
 The above instability is due to the vertices of the curve bunching together.  The image below shows the vectors of individual vertices at different iterations of the algorithm.  Initially the vertices are uniformly spaced.   In later iterations, however, they are more clustered at points of high curvature.  Eventually the vertices become so close their vectors cross, leading to an overlap in the curve and instability that grows out of control, shown on the right.
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\vertex_step_vectors.png" style="zoom:60%;" /> 
+<img src=\"images\enclosed_curve_shortening_flow_images\vertex_step_vectors.png" style="zoom:60%;" /> 
 
 
 
@@ -658,7 +658,7 @@ $$
 \mathcal N(x; \sigma) = \bar R_X^{(0)} \exp(-\frac {x^2} {2\sigma^2}), \quad \sigma = \frac \pi {20}
 $$
 
-<img src=\"\images\enclosed_curve_shortening_flow_images\convex_approx.png" style="zoom:60%;" />
+<img src=\"images\enclosed_curve_shortening_flow_images\convex_approx.png" style="zoom:60%;" />
 
 Thus, the inverse of the scaled normal distribution can be used to find values of the Gaussian standard deviation that give linear iteration curves between the original convex curve and the  singularity;
 
