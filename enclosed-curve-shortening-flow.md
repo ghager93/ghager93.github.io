@@ -78,10 +78,10 @@ $$
 
 <img src=\"\images\enclosed_curve_shortening_flow_images\osculating_circle.png" style="zoom:60%;" />
 
-The **curve shortening flow** is defined such that each point $\bf x = \left<x(s), y(s)\right>$ on the curve moves according to the following differential equation:
+The **curve shortening flow** is defined such that each point $\boldsymbol x = \left<x(s), y(s)\right>$ on the curve moves according to the following differential equation:
 
 $$
-\frac {d \bf x} {dt} = -k(\bf x)\vec n(\bf x) = -\vec t(\bf x)
+\frac {d \boldsymbol x} {dt} = -k(\boldsymbol x)\vec n(\boldsymbol x) = -\vec t(\boldsymbol x)
 $$
 
 <img src="C:\Users\ghage\Documents\Mathematics & Statistics\Curve Shortening\Convex Curve Shortening.assets\csf_vectors-1622729749489.png" style="zoom:60%;" />
@@ -90,15 +90,15 @@ $$
 
 ##### Discrete Curve Shortening Flow
 
-For a polygon made up of discrete vertices, the curvature $k(\bf v)$ at vertex $\bf v$ is 
+For a polygon made up of discrete vertices, the curvature $k(\boldsymbol v)$ at vertex $\boldsymbol v$ is 
 
 $$
-k(\bf v) = \pi - \alpha
+k(\boldsymbol v) = \pi - \alpha
 $$
 
-where $\alpha$ is the interior angle at $\bf v$.
+where $\alpha$ is the interior angle at $\boldsymbol v$.
 
-The normal vector $\vec {n(\bf v)}$ points in the direction of the angle bisector at $\bf v$;
+The normal vector $\vec {n(\boldsymbol v)}$ points in the direction of the angle bisector at $\boldsymbol v$;
 
 <img src=\"\images\enclosed_curve_shortening_flow_images\discrete_csf.png" style="zoom:60%;" />
 
@@ -190,7 +190,7 @@ Let `points` be a list of the locations of pixels representing the curve;
 points = [[0, 0], [1, 1], [2, 1], [2, 2], [2, 3], [1, 4], [2, 5], [3, 5], [4, 5]]
 ```
 
-The arc length $\bf s$ is calculated as the cumulative Euclidean distance between the points;
+The arc length $\boldsymbol s$ is calculated as the cumulative Euclidean distance between the points;
 
 ```python
 def arc_length(points):
@@ -199,7 +199,7 @@ def arc_length(points):
 s = [0.   , 1.414, 2.414, 3.414, 4.414, 5.828, 7.243, 8.243, 9.243]
 ```
 
- $\bf s$ can be normalised to lie in the region $\bf s_n \in [0, 1]$.
+ $\boldsymbol s$ can be normalised to lie in the region $\boldsymbol s_n \in [0, 1]$.
 
 ```python
 sn = [0.   , 0.153, 0.261, 0.369, 0.478, 0.631, 0.784, 0.892, 1.   ]
@@ -208,7 +208,7 @@ sn = [0.   , 0.153, 0.261, 0.369, 0.478, 0.631, 0.784, 0.892, 1.   ]
 The backward finite difference is used to find the first-order differential of the curve, 
 
 $$
-\bf x'(s_n) = \left< x'(s_n), y'(s_n) \right>
+\boldsymbol x'(s_n) = \left< x'(s_n), y'(s_n) \right>
 $$
 
 ```python
@@ -230,7 +230,7 @@ dpoints =  [[ 6.536,  6.536],
 The unit tangent vectors of the curve are found by normalising each point of the derivative,
 
 $$
-\bf t = \frac 1 {\sqrt{x'^2(s) + y'^2(s)}}\bf x'(s_n)
+\boldsymbol t = \frac 1 {\sqrt{x'^2(s) + y'^2(s)}}\boldsymbol x'(s_n)
 $$
 
 
@@ -249,7 +249,7 @@ t =    [[ 0.707,  0.707],
 The second derivative is found using the central finite difference,
 
 $$
-\bf x''(s_n) = \left< x''(s_n), y''(s_n) \right>
+\boldsymbol x''(s_n) = \left< x''(s_n), y''(s_n) \right>
 $$
 
 ```python
@@ -274,7 +274,7 @@ ddpoints = [[ 10.364, -25.021],
 The unit normal vectors of the curve are the normalised vectors of the second derivative;
 
 $$
-\bf n = \frac {\bf t'} {\left| \bf t' \right|}
+\boldsymbol n = \frac {\boldsymbol t'} {\left| \boldsymbol t' \right|}
 $$
 
 ```python
@@ -327,7 +327,7 @@ The curvature can be calculated as the cross-product of the normal and the tange
 
 $$
 \begin{align}
-	\kappa(s) &= \bf t(s) \times \bf n(s) \\
+	\kappa(s) &= \boldsymbol t(s) \times \boldsymbol n(s) \\
 	\\
 	&= x'(s)y''(s) - x''(s)y'(s)
 \end{align}
@@ -346,7 +346,7 @@ A positive (red) curvature indicates an inward curve, while negative (blue) indi
 By moving the each point of the curve in the direction of its normal, the curvature will move toward a constant.  That is, outward curves will move outward and inward curves inward, until the curvature at each point is equal.  At this point, the curve will be a circle, and subsequent moves along the normal will shrink the circle to a singularity.  This can be simulated via iterative update;
 
 $$
-\bf x^{(i+1)}(s) \leftarrow \bf x^{(i)}(s) + \beta\bf n^{(i)}(s)
+\boldsymbol x^{(i+1)}(s) \leftarrow \boldsymbol x^{(i)}(s) + \beta\boldsymbol n^{(i)}(s)
 $$
 
 where  $\beta$ is some step size constant.  However, this process can be (and often is) problematic, as shown below;
@@ -435,14 +435,14 @@ According to the Gage-Hamilton-Grayson theorem, any shape that undergoes curve s
 Clearly, to satisfy this property, the curve should only move inward.  Assuming a clockwise arc, the inward vector can be found by rotating the tangent vector $90^\circ$ clockwise;
 
 $$
-\bf v_{inward}(s) = 
+\boldsymbol v_{inward}(s) = 
 	\left(
 		\begin{matrix}
 			0 & 1 \\
 			-1 & 0 \\
    		\end{matrix}
    	\right)
-    \bf t(s)
+    \boldsymbol t(s)
 $$
 
 <img src=\"\images\enclosed_curve_shortening_flow_images\inward_vector.png" style="zoom:60%;" />
@@ -458,7 +458,7 @@ However, since the movements are not weighted by the amount of curvature, the cu
 To prevent singular points emerging where curvature is sharpest, the update can be weighted by the curvature $\kappa$;
 
 $$
-\bf v_{step}(s) = 
+\boldsymbol v_{step}(s) = 
 	\kappa(s)
 	\left(
 		\begin{matrix}
@@ -466,7 +466,7 @@ $$
 			-1 & 0 \\
 		\end{matrix}	
 	\right)
-	\bf t(s)
+	\boldsymbol t(s)
 $$
 
 <img src=\"\images\enclosed_curve_shortening_flow_images\weighted_inward_vector.png" style="zoom:60%;" />
@@ -537,23 +537,23 @@ Since the sigmoid function limits the positive curvature to one, it produces the
 
 #### Iterations
 
-We turn now to implementation of ECSF.  The algorithm is an iterative update function.  For each step, the normalised curvature at each point, $\kappa_{norm}(s)$ is calculated.  This is then scaled by one of the scaling functions discussed above.  This scaling is used to weight the inward vector, $\bf v_{inward}(s)$.  The weighted vectors are passed through a Gaussian filter to smooth any discontinuities.  Finally the shape is shifted in the direction of the filtered vectors, with the magnitude determined by a step size coefficient.  This is summarised below;
+We turn now to implementation of ECSF.  The algorithm is an iterative update function.  For each step, the normalised curvature at each point, $\kappa_{norm}(s)$ is calculated.  This is then scaled by one of the scaling functions discussed above.  This scaling is used to weight the inward vector, $\boldsymbol v_{inward}(s)$.  The weighted vectors are passed through a Gaussian filter to smooth any discontinuities.  Finally the shape is shifted in the direction of the filtered vectors, with the magnitude determined by a step size coefficient.  This is summarised below;
 
 $$
 \begin{align}
 	\kappa_{norm} &= \frac {\kappa} {\max \left( \lvert \kappa \rvert \right)} \\ \\
 	\kappa_{scaled} &= f_{scaling}\left(\kappa_{norm}\right) \\ \\
-	\bf v_{inward} &= 
+	\boldsymbol v_{inward} &= 
 		\left(
 		\begin{matrix}
 			0 & 1 \\
 			-1 & 0 \\
 		\end{matrix}	
 		\right)
-		\bf t \\ \\
-	\bf x^{(i+1)} &= \bf x^{(i)} + 
-		\beta_{step} \left(\kappa_{scaled} \bf v_{inward} \circledast \bf 
-		g\left(\bf s , \sigma\right)\right)
+		\boldsymbol t \\ \\
+	\boldsymbol x^{(i+1)} &= \boldsymbol x^{(i)} + 
+		\beta_{step} \left(\kappa_{scaled} \boldsymbol v_{inward} \circledast \boldsymbol 
+		g\left(\boldsymbol s , \sigma\right)\right)
 		
 \end{align}
 $$
