@@ -670,7 +670,7 @@ where $\left\lvert \bar R_X^{(0)} \right\rvert$ is the average radius of the ori
 
 # Bibliography
 
-- https://en.wikipedia.org/wiki/Curve-shortening_flow
+- <a href="https://en.wikipedia.org/wiki/Curve-shortening_flow"> https://en.wikipedia.org/wiki/Curve-shortening_flow </a>
 - https://math.mit.edu/research/highschool/primes/materials/2017/conf/7-1-Cohen-Singh.pdf
 - https://en.wikipedia.org/wiki/Finite_difference
 - https://paperswithcode.com/method/softplus
